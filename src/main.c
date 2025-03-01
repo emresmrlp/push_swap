@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:24:27 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 11:30:33 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:12:06 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int	main(int ac, char **av)
 		return (program_exit(data));
 	if (init(data))
 		return (program_exit_with_error(data));
-	if (stack_controls(data) == -1)
+	if (!stack_controls(data))
+		return (program_exit(data));
+	/*if (stack_controls(data) == -1)
 		return (program_exit(data));
 	else if (stack_controls(data))
-		return (program_exit_with_error(data));
+		return (program_exit_with_error(data));*/
 	ft_printf("program is working (insallah)\n");
 	return (program_exit(data));
 }

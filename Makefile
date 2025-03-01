@@ -6,7 +6,7 @@
 #    By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 12:12:01 by ysumeral          #+#    #+#              #
-#    Updated: 2025/03/01 10:57:42 by ysumeral         ###   ########.fr        #
+#    Updated: 2025/03/01 12:18:03 by ysumeral         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/program_init.c \
 		$(SRC_DIR)/program_state.c \
 		$(SRC_DIR)/param_handler.c \
+		$(SRC_DIR)/param_util.c \
 		$(SRC_DIR)/stack_handler.c \
 		$(SRC_DIR)/memory_free.c \
 		$(LIB_DIR)/ft_calloc.c \
-		$(LIB_DIR)/ft_atoi.c \
+		$(LIB_DIR)/ft_atol.c \
 		$(LIB_DIR)/ft_split.c \
 		$(LIB_DIR)/ft_putstr_fd.c \
 		$(LIB_DIR)/ft_substr.c \

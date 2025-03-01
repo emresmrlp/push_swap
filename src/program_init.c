@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 08:06:56 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 11:20:17 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:17:44 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int init_stacks(t_data *data)
 	i = 0;
 	while (data->buffer[i] != NULL)
 	{
-		data->a[i] = ft_atoi(data->buffer[i]);
+		data->a[i] = ft_atol(data->buffer[i]);
 		i++;
 	}
 	return (0);

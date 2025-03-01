@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_handler.c                                    :+:      :+:    :+:   */
+/*   param_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 10:11:09 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 12:11:32 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/01 12:09:43 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/03/01 12:10:10 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int stack_check_sorted(t_data *data)
+int	param_count(char **av)
 {
     int i;
 
     i = 0;
-    while (i < data->size_a)
-    {
-        if (data->a[i + 1] == '\0')
-            break ;
-        if (data->a[i] > data->a[i + 1])
-            return (1);
+    while (av[i] != NULL)
         i++;
-    }
-    return (0);
-}
-
-int	stack_controls(t_data *data)
-{
-    if (!stack_check_sorted(data))
-        return (1);
-    return (0);
+    return (i);
 }

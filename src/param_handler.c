@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 11:21:00 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:17:34 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,18 @@ static int	param_allocation(t_data *data, int ac, char **av)
 	return (0);
 }
 
-static int param_count(char **buffer)
+static int	param_check_max_min(char **av)
 {
-	int counter;
-	counter = 0;
-	while (buffer[counter] != NULL)
-		counter++;
-	return (counter);
+	int	i;
+
+	i = 0;
+	while (av[i] != NULL)
+	{
+		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	param_controls(t_data *data, int ac, char **av)
@@ -107,6 +112,8 @@ int	param_controls(t_data *data, int ac, char **av)
 	if (param_allocation(data, ac, av))
 		return (1);
 	data->size = param_count(data->buffer);
+	if (param_check_max_min(data->buffer))
+		return (1);
 	if (param_check_conditions(data->buffer))
 		return (1);
 	if (param_check_duplicate(data->buffer))

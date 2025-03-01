@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 21:01:40 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 08:53:04 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:16:50 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 
 void	*ft_calloc(int count, int size);
-int     ft_atoi(char *str);
+long    ft_atol(char *str);
 int		ft_strlcpy(char *dest, const char *src, int dstsize);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_strlen(const char *s);

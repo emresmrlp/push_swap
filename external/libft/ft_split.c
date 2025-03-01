@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 16:03:41 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/02/28 16:13:38 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 09:07:21 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ char	**ft_split(char const *s, char c)
 	size_t	word_len;
 	size_t	i;
 
-	i = 0;
-	buffer = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	i = 1;
+	buffer = (char **)malloc((ft_count_words(s, c) + 2) * sizeof(char *));
 	if (buffer == NULL)
 		return (NULL);
+	buffer[0] = ft_strdup("./push_swap");
 	while (*s)
 	{
 		while (*s == c && *s)

@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program_state.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 15:01:17 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 09:34:01 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/01 08:52:35 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/03/01 08:53:35 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
 
-int	program_exit_with_error(t_data *data)
+int	ft_atoi(char *str)
 {
-	memory_free(data);
-	ft_printf("Error\n");
-	return (1);
-}
+	size_t	i;
+	int		sign;
+	int		result;
 
-int	program_exit(t_data *data)
-{
-	memory_free(data);
-	return (0);
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
 }

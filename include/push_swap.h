@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <limits.h>
 #include "../external/libft/libft.h"
 #include "../external/ft_printf/ft_printf.h"
 

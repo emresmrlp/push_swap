@@ -6,7 +6,7 @@
 #    By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 12:12:01 by ysumeral          #+#    #+#              #
-#    Updated: 2025/03/01 04:59:19 by ysumeral         ###   ########.fr        #
+#    Updated: 2025/03/01 08:17:18 by ysumeral         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIB_DIR = ./external/libft
 INC_DIR = ./include
 PRINTF_LIB = ./external/ft_printf/libftprintf.a
 SRC =	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/program_init.c \
 		$(SRC_DIR)/program_state.c \
 		$(SRC_DIR)/param_controls.c \
 		$(SRC_DIR)/memory_free.c \

@@ -54,10 +54,5 @@ int param_controls(t_data *data, int ac, char **av)
 	}
 	if (param_conditions(av, i))
 		return (1);
-	if (data->buffer)
-	{
-		free_params(data->buffer);
-		data->buffer = NULL;
-	}
 	return (0);
 }

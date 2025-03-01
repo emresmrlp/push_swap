@@ -12,17 +12,18 @@
 
 #include "../include/push_swap.h"
 
-void    free_params(char **buffer)
+static void free_params(t_data *data)
 {
     int i;
 
     i = 0;
-    while (buffer[i] != NULL)
+    while (data->buffer[i] != NULL)
     {
-        free(buffer[i]);
+        free(data->buffer[i]);
         i++;
     }
-    free(buffer);
+    free(data->buffer);
+    data->buffer = NULL;
 }
 
 void	memory_free(t_data *data)
@@ -30,7 +31,7 @@ void	memory_free(t_data *data)
     if (data)
     {
         if (data->buffer)
-            free_params(data->buffer);
+            free_params(data);
         free(data);
     }
 }

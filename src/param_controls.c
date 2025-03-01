@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 08:27:10 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 08:29:10 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int param_controls(t_data *data, int ac, char **av)
 	}
 	if (param_conditions(av, i))
 		return (1);
-	free_params(data->buffer);
+	if (data->buffer)
+	{
+		free_params(data->buffer);
+		data->buffer = NULL;
+	}
 	return (0);
 }

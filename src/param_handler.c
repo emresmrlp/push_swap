@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 12:17:34 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:34:32 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	param_check_duplicate(char **av)
 
 static int	param_allocation(t_data *data, int ac, char **av)
 {
-	int i;
+	int	i;
 
 	if (ac == 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 08:06:56 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 12:17:44 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:33:52 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	init_data(t_data *data)
 	data->b = NULL;
 }
 
-static int init_stacks(t_data *data)
+static int	init_stacks(t_data *data)
 {
-	int i;
+	int	i;
 
 	data->a = (int *)ft_calloc(data->size_a, sizeof(int));
 	if (!data->a)

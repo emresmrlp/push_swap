@@ -6,13 +6,13 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 08:52:35 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 12:16:39 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:41:11 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atol(char *str)
+long	ft_atol(char *str)
 {
 	size_t	i;
 	int		sign;

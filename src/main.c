@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:24:27 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 08:09:44 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 08:15:01 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	if (ac < 2)
-		return (program_exit(data));
+		return (1);
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		return (program_exit_with_error(data));

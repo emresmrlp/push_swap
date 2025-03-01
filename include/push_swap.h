@@ -19,7 +19,6 @@ typedef struct s_data
 } t_data;
 
 int     init(t_data *data);
-int     program_exit(t_data *data);
 int     program_exit_with_error(t_data *data);
 int     param_controls(t_data *data, int ac, char **av);
 void    memory_free(t_data *data);

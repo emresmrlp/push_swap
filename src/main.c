@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:24:27 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 17:39:47 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:40:00 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int ac, char **av)
 	if (init(data))
 		return (program_exit_with_error(data));
 	if (stack_controls(data))
+		return (program_exit_with_error(data));
+	if (stack_is_sorted(data))
 		return (program_exit(data));
 	sort(data);
 	return (program_exit(data));

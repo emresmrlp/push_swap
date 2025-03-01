@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:21:42 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 18:12:49 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 20:20:31 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ void sort_five(t_data *data)
     push_a(data);
 }
 
-void sort_large(t_data *data)
+void quick_sort(t_data *data)
 {
-    //-_
+    int median;
+
+    median = get_median_of_three(data);
 }

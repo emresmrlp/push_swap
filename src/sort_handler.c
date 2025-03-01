@@ -6,13 +6,13 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:37:12 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 18:03:55 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 18:44:18 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	tester(t_data *data)
+/*static void	tester(t_data *data)
 {
 	int	i;
 
@@ -31,11 +31,11 @@ static void	tester(t_data *data)
 		i++;
 	}
 	ft_printf("--------------------\n");
-}
+}*/
 
 void	sort(t_data *data)
 {
-	tester(data);
+	//tester(data);
 	if (data->size == 2)
 		swap_a(data);
 	else if (data->size == 3)
@@ -46,5 +46,5 @@ void	sort(t_data *data)
 		sort_five(data);
 	else
 		sort_large(data);
-	tester(data);
+	//tester(data);
 }

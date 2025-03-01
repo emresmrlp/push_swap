@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 16:27:49 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:37:34 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,12 @@ static int	param_check_conditions(char **av)
 			{
 				if (j == 0 && (av[i][j] == '-' || av[i][j] == '+'))
 				{
-					if (av[i][j + 1] == '\0' || !ft_isdigit(av[i][j + 1])
-						|| av[i][j + 1] == '0')
+					if (av[i][j + 1] == '\0' || !ft_isdigit(av[i][j + 1]))
 						return (1);
 				}
 				else
 					return (1);
 			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-static int	param_check_duplicate(char **av)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (av[i] != NULL)
-	{
-		if (av[i + 1] == NULL)
-		{
-			if (i == 1)
-				return (0);
-			break ;
-		}
-		j = 0;
-		while (av[j] != NULL)
-		{
-			if (!ft_strncmp(av[i], av[j], 11) && i != j)
-				return (1);
 			j++;
 		}
 		i++;
@@ -115,8 +88,6 @@ int	param_controls(t_data *data, int ac, char **av)
 	if (param_check_max_min(data->buffer))
 		return (1);
 	if (param_check_conditions(data->buffer))
-		return (1);
-	if (param_check_duplicate(data->buffer))
 		return (1);
 	return (0);
 }

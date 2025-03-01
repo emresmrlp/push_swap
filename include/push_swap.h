@@ -5,24 +5,22 @@
 #include "../external/libft/libft.h"
 #include "../external/ft_printf/ft_printf.h"
 
-typedef struct  s_stack
-{
-    int size;
-    struct s_stack *next;
-    struct s_stack *prev;
-} t_stack;
-
 typedef struct s_data
 {
+    int *a;
+    int *b;
+    int size_a;
+    int size_b;
     char **buffer;
-    t_stack *a;
-    t_stack *b;
 } t_data;
 
 int     init(t_data *data);
+int     param_count(t_data *data);
 int     program_exit(t_data *data);
 int     program_exit_with_error(t_data *data);
 int     param_controls(t_data *data, int ac, char **av);
+int     stack_controls(t_data *data);
+void	free_params(t_data *data);
 void    memory_free(t_data *data);
 
 #endif

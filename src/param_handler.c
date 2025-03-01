@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   param_controls.c                                   :+:      :+:    :+:   */
+/*   param_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 09:32:56 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:21:00 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	param_check_conditions(char **av)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (av[i] != NULL)
 	{
 		j = 0;
@@ -46,7 +46,7 @@ static int	param_check_duplicate(char **av)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (av[i] != NULL)
 	{
 		if (av[i + 1] == NULL)
@@ -55,10 +55,10 @@ static int	param_check_duplicate(char **av)
 				return (0);
 			break ;
 		}
-		j = 1;
+		j = 0;
 		while (av[j] != NULL)
 		{
-			if (!ft_strncmp(av[i], av[j], ft_strlen(av[i])) && i != j)
+			if (!ft_strncmp(av[i], av[j], 11) && i != j)
 				return (1);
 			j++;
 		}
@@ -67,56 +67,48 @@ static int	param_check_duplicate(char **av)
 	return (0);
 }
 
-static int	param_check_sorted(char **av)
+static int	param_allocation(t_data *data, int ac, char **av)
 {
-	int	i;
+	int i;
 
-	i = 1;
-	while (av[i] != NULL)
-	{
-		if (av[i + 1] == NULL)
-		{
-			if (i == 1)
-				return (0);
-			break ;
-		}
-		if (ft_atoi(av[i]) > ft_atoi(av[i + 1]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static int	param_check_max_min(char **av)
-{
-	int	i;
-
-	i = 1;
-	while (av[i] != NULL)
-	{
-		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	param_controls(t_data *data, int ac, char **av)
-{
 	if (ac == 2)
 	{
 		data->buffer = ft_split(av[1], ' ');
 		if (!data->buffer)
 			return (1);
-		av = data->buffer;
 	}
-	if (param_check_conditions(av))
+	else
+	{
+		i = 0;
+		data->buffer = (char **)ft_calloc(ac, sizeof(char *));
+		while (av[i + 1] != NULL)
+		{
+			data->buffer[i] = ft_strdup(av[i + 1]);
+			if (!data->buffer[i])
+				return (1);
+			i++;
+		}
+		data->buffer[i] = NULL;
+	}
+	return (0);
+}
+
+int param_count(t_data *data)
+{
+	int counter;
+	counter = 0;
+	while (data->buffer[counter] != NULL)
+		counter++;
+	return (counter);
+}
+
+int	param_controls(t_data *data, int ac, char **av)
+{
+	if (param_allocation(data, ac, av))
 		return (1);
-	if (param_check_duplicate(av))
+	if (param_check_conditions(data->buffer))
 		return (1);
-	if (!param_check_sorted(av))
-		return (0);
-	if (param_check_max_min(av))
+	if (param_check_duplicate(data->buffer))
 		return (1);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:52:48 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 08:10:29 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/01 08:25:05 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void    free_params(char **buffer)
+void    free_params(char **buffer)
 {
     int i;
 

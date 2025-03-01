@@ -26,12 +26,21 @@ void	free_params(t_data *data)
 	data->buffer = NULL;
 }
 
+void    free_stack(t_data *data)
+{
+    if (data->a)
+        free(data->a);
+    if (data->b)
+        free(data->b);
+}
+
 void	memory_free(t_data *data)
 {
 	if (data)
 	{
 		if (data->buffer)
 			free_params(data);
+        free_stack(data);
 		free(data);
 	}
 }

@@ -23,11 +23,14 @@ int	main(int ac, char **av)
 		return (program_exit_with_error(data));
 	if (param_controls(data, ac, av))
 		return (program_exit_with_error(data));
-	if (param_count(data) == 1)
+	if (data->size == 1)
 		return (program_exit(data));
 	if (init(data))
 		return (program_exit_with_error(data));
-	if (stack_controls(data))
+	if (stack_controls(data) == -1)
+		return (program_exit(data));
+	else if (stack_controls(data))
 		return (program_exit_with_error(data));
+	ft_printf("program is working (insallah)\n");
 	return (program_exit(data));
 }

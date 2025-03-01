@@ -93,11 +93,11 @@ static int	param_allocation(t_data *data, int ac, char **av)
 	return (0);
 }
 
-int param_count(t_data *data)
+static int param_count(char **buffer)
 {
 	int counter;
 	counter = 0;
-	while (data->buffer[counter] != NULL)
+	while (buffer[counter] != NULL)
 		counter++;
 	return (counter);
 }
@@ -106,6 +106,7 @@ int	param_controls(t_data *data, int ac, char **av)
 {
 	if (param_allocation(data, ac, av))
 		return (1);
+	data->size = param_count(data->buffer);
 	if (param_check_conditions(data->buffer))
 		return (1);
 	if (param_check_duplicate(data->buffer))

@@ -47,6 +47,6 @@ int	stack_controls(t_data *data)
     if (stack_check_max_min(data))
         return (1);
     if (!stack_check_sorted(data))
-        return (1);
+        return (-1);
     return (0);
 }

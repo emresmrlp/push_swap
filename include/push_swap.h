@@ -9,13 +9,13 @@ typedef struct s_data
 {
     int *a;
     int *b;
+    int size;
     int size_a;
     int size_b;
     char **buffer;
 } t_data;
 
 int     init(t_data *data);
-int     param_count(t_data *data);
 int     program_exit(t_data *data);
 int     program_exit_with_error(t_data *data);
 int     param_controls(t_data *data, int ac, char **av);

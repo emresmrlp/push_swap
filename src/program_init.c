@@ -34,13 +34,12 @@ static int init_stacks(t_data *data)
 		data->a[i] = ft_atoi(data->buffer[i]);
 		i++;
 	}
-	free_params(data);
 	return (0);
 }
 
 int	init(t_data *data)
 {
-	data->size_a = param_count(data);
+	data->size_a = data->size;
 	data->size_b = 0;
 	init_data(data);
 	if (init_stacks(data))

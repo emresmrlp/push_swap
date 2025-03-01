@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_handler.c                                    :+:      :+:    :+:   */
+/*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 10:11:09 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 17:43:13 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/01 17:03:14 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/03/01 17:18:39 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	stack_is_sorted(t_data *data)
+int is_min(t_data *data, int value)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	while (i < data->size_a)
-	{
-		if (data->a[i + 1] == '\0')
-			break ;
-		if (data->a[i] > data->a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
+    i = 0;
+    while (i < data->size_a)
+    {
+        if (data->a[i] < value)
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
-int	stack_controls(t_data *data)
+int is_max(t_data *data, int value)
 {
-	if (stack_is_sorted(data))
-		return (1);
-	return (0);
+    int i;
+
+    i = 0;
+    while (i < data->size_a)
+    {
+        if (data->a[i] > value)
+            return (0);
+        i++;
+    }
+    return (1);
 }

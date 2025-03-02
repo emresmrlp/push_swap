@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 19:37:34 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/02 07:32:10 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,16 @@ static int	param_check_max_min(char **av)
 		i++;
 	}
 	return (0);
+}
+
+int	param_count(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i] != NULL)
+		i++;
+	return (i);
 }
 
 int	param_controls(t_data *data, int ac, char **av)

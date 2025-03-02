@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:03:14 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 19:47:56 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:54:08 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int is_max(t_data *data, int value)
     return (1);
 }
 
-int get_median_of_three(t_data *data)
+int get_median_of_three_in_a(t_data *data)
 {
     if (data->size_a < 3)
     {
@@ -62,4 +62,28 @@ int get_median_of_three(t_data *data)
         return (data->a[data->size / 2]);
     else
         return (data->a[data->size - 1]);
+}
+
+int get_median_of_three_in_b(t_data *data)
+{
+    if (data->size_b < 3)
+    {
+        if (data->size_b == 1)
+            return (data->b[0]);
+        else
+        {
+            if (data->b[0] < data->b[1])
+                return (data->b[0]);
+            else
+                return (data->b[1]);
+        }
+    }
+    if (data->b[0] < data->b[data->size / 2] &&
+         data->b[0] > data->b[data->size - 1])
+        return (data->b[0]);
+    else if (data->b[data->size / 2] < data->b[0] &&
+         data->b[data->size / 2] > data->b[data->size - 1])
+        return (data->b[data->size / 2]);
+    else
+        return (data->b[data->size - 1]);
 }

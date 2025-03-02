@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 15:38:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 16:26:55 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:57:13 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	shift_down_a(t_data *data)
 		i = data->size_a - 1;
 	while (i >= 0)
 	{
+		if (i + 1 == data->size_a)
+			break ;
 		data->a[i + 1] = data->a[i];
 		i--;
 	}
@@ -65,6 +67,8 @@ void	shift_down_b(t_data *data)
 		i = data->size_b - 1;
 	while (i >= 0)
 	{
+		if (i + 1 == data->size_b)
+			break ;
 		data->b[i + 1] = data->b[i];
 		i--;
 	}

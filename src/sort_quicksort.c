@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   param_util.c                                       :+:      :+:    :+:   */
+/*   sort_quicksort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 12:09:43 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 12:34:20 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/02 08:11:42 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/03/02 13:16:00 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	param_count(char **av)
+void quick_sort(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	while (av[i] != NULL)
-		i++;
-	return (i);
+    (void)data;
+    ft_printf("dagnfjasafjsn");
 }

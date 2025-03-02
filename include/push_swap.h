@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:42:02 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/01 19:51:32 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/02 11:54:25 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ void	sort_three(t_data *data);
 void	sort_four(t_data *data);
 void	sort_five(t_data *data);
 void	quick_sort(t_data *data);
-int		get_median_of_three(t_data *data);
+int		get_median_of_three_in_a(t_data *data);
+int		get_median_of_three_in_b(t_data *data);
 int		is_min(t_data *data, int value);
 int		is_max(t_data *data, int value);
 int		push_a(t_data *data);
 int		push_b(t_data *data);
+int		push_a_all(t_data *data);
 int		swap_a(t_data *data);
 int		swap_b(t_data *data);
 int		swap_ab(t_data *data);

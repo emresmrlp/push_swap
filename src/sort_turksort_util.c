@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_util.c                                        :+:      :+:    :+:   */
+/*   sort_turksort_util.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 17:03:14 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 20:59:54 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/07 20:19:13 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/03/07 21:21:36 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-t_stack *get_min(t_stack **stack)
+#include        <stdio.h>
+void set_index(t_stack **stack)
 {
-    t_stack *min;
+    int i;
+    int median;
     t_stack *temp;
 
     temp = *stack;
-    min = temp;
+    median = get_size(stack) / 2;
+    i = 0;
     while (temp)
     {
-        if (temp->value < min->value)
-            min = temp;
+        temp->index = i;
+        if (i < median)
+            temp->above_median = 1;
+        else
+            temp->above_median = 0;
         temp = temp->next;
+        i++;
     }
-    return (min);
 }
 
-t_stack *get_max(t_stack **stack)
+void    min_to_top(t_data *data)
 {
-    t_stack *max;
-    t_stack *temp;
-
-    temp = *stack;
-    max = temp;
-    while (temp)
+    while (get_min(data->stack_a)->value != (*data->stack_a)->value)
     {
-        if (temp->value > max->value)
-            max = temp;
-        temp = temp->next;
+        if (get_min(data->stack_a)->above_median)
+            rotate_a(data);
+        else
+            rev_rotate_a(data);
     }
-    return (max);
 }

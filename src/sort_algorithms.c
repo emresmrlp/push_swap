@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:21:42 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 18:02:47 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:43:53 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,15 @@
 
 void sort_three(t_data *data)
 {
-	t_stack *stack_a;
+	int max;
 
-	stack_a = *data->stack_a;
+	max = get_max(data->stack_a)->value;
     if (is_sorted(data->stack_a))
         return ;
-    if (get_min(data->stack_a) == stack_a->value)
-	{
-		rev_rotate_a(data);
-		swap_a(data);
-	}
-	else if (get_max(data->stack_a) == stack_a->value)
-	{
+    if ((*data->stack_a)->value == max)
 		rotate_a(data);
-		if (!is_sorted(data->stack_a))
-			swap_a(data);
-    }
-	else
-	{
-		if (get_min(data->stack_a) == stack_a->next->value)
-			swap_a(data);
-		else
-			rev_rotate_a(data);
-	}
+	else if ((*data->stack_a)->next->value == max)
+		rev_rotate_a(data);
+	if ((*data->stack_a)->value > (*data->stack_a)->next->value)
+		swap_a(data);
 }

@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:03:14 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/09 14:15:12 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:14:53 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void set_index(t_stack **stack)
     t_stack *temp;
 
     temp = *stack;
-    median = get_size(stack) / 2;
+    median = get_size(*stack) / 2;
     i = 0;
     while (temp)
     {

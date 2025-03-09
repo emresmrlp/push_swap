@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:42:02 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/09 14:13:49 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:15:15 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ t_stack	*get_min(t_stack *stack);
 t_stack	*get_max(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
 void	set_targets_a(t_stack *stack_a, t_stack *stack_b);
-void	set_targets_b(t_data *data);
-void	set_cheapest_a(t_data *data);
-void	set_cheapest_b(t_data *data);
+void	set_targets_b(t_stack *stack_a, t_stack *stack_b);
+void	set_cheapest_a(t_stack *stack_a, t_stack *stack_b);
+void	set_cheapest_b(t_stack *stack_a, t_stack *stack_b);
 void    min_to_top(t_data *data);
 void	set_index(t_stack **stack);
 void	add_node(t_stack **stack, t_stack *node);
@@ -52,7 +52,7 @@ int		program_init(t_data *data);
 void	sort_handler(t_data *data);
 void	sort_three(t_data *data);
 void	sort_algorithm(t_data *data);
-int		get_size(t_stack **stack);
+int		get_size(t_stack *stack);
 int		push_a(t_data *data);
 int		push_b(t_data *data);
 int		swap_a(t_data *data);

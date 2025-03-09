@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_turksort_util.c                               :+:      :+:    :+:   */
+/*   sort_turksort_cost.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:19:13 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 21:21:36 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/09 13:07:45 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include        <stdio.h>
-void set_index(t_stack **stack)
-{
-    int i;
-    int median;
-    t_stack *temp;
 
-    temp = *stack;
-    median = get_size(stack) / 2;
-    i = 0;
-    while (temp)
-    {
-        temp->index = i;
-        if (i < median)
-            temp->above_median = 1;
-        else
-            temp->above_median = 0;
-        temp = temp->next;
-        i++;
-    }
+static void calc_costs_a(t_stack **stack_a, t_stack **stack_b)
+{
+    (void)stack_a;
+    (void)stack_b;
+    ft_printf("calc_costs_a\n");
 }
 
-void    min_to_top(t_data *data)
+static void calc_costs_b(t_stack **stack_a, t_stack **stack_b)
 {
-    while (get_min(data->stack_a)->value != (*data->stack_a)->value)
-    {
-        if (get_min(data->stack_a)->above_median)
-            rotate_a(data);
-        else
-            rev_rotate_a(data);
-    }
+    (void)stack_a;
+    (void)stack_b;
+    ft_printf("calc_costs_b\n");
+}
+
+void set_cheapest_a(t_data *data)
+{
+    calc_costs_a(data->stack_a, data->stack_b);
+    ft_printf("set_cheapest_a\n");
+}
+
+void set_cheapest_b(t_data *data)
+{
+    calc_costs_b(data->stack_a, data->stack_b);
+    ft_printf("set_cheapest_b\n");
 }

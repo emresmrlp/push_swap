@@ -6,7 +6,7 @@
 #    By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 12:12:01 by ysumeral          #+#    #+#              #
-#    Updated: 2025/03/07 20:27:50 by ysumeral         ###   ########.fr        #
+#    Updated: 2025/03/09 13:05:57 by ysumeral         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/sort_handler.c \
 		$(SRC_DIR)/sort_util.c \
 		$(SRC_DIR)/sort_turksort.c \
-		$(SRC_DIR)/sort_turksort_util.c \
+		$(SRC_DIR)/sort_turksort_target.c \
+		$(SRC_DIR)/sort_turksort_cost.c \
 		$(SRC_DIR)/sort_algorithms.c \
 		$(SRC_DIR)/stack_rev_rotate.c \
 		$(SRC_DIR)/program_init.c \

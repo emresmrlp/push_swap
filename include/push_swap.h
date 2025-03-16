@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:42:02 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/09 21:15:15 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:50:17 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		program_init(t_data *data);
 void	sort_handler(t_data *data);
 void	sort_three(t_data *data);
 void	sort_algorithm(t_data *data);
-int		get_size(t_stack *stack);
+int		get_size(t_stack **stack);
 int		push_a(t_data *data);
 int		push_b(t_data *data);
 int		swap_a(t_data *data);

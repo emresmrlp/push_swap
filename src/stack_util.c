@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 08:25:32 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/09 21:14:06 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 07:58:05 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ t_stack	*create_node(int value)
 		return (NULL);
 	node->value = value;
 	node->index = 0;
+	node->above_median = 0;
+	node->cheapest = 0;
+	node->cost = 0;
+	node->target = NULL;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
@@ -49,15 +53,17 @@ t_stack *get_last_node(t_stack *stack)
 	return (stack);
 }
 
-int	get_size(t_stack *stack)
+int	get_size(t_stack **stack)
 {
 	int i;
+	t_stack *temp;
 
+	temp = *stack;
 	i = 0;
-	while (stack)
+	while (temp)
 	{
 		i++;
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:03:14 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/16 09:21:31 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 10:00:48 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void set_index(t_stack **stack)
 
 void    min_to_top(t_data *data)
 {
-    while (get_min(*data->stack_a)->value != (*data->stack_a)->value)
-    {
-        if (get_min(*data->stack_a)->above_median)
-            rotate_a(data);
-        else
-            rev_rotate_a(data);
-    }
+    t_stack *min;
+
+    min = get_min(*data->stack_a);
+    while (min->value != (*data->stack_a)->value && min->above_median)
+        rotate_a(data);
+    while (min->value != (*data->stack_a)->value && !min->above_median)
+        rev_rotate_a(data);
 }
 
 t_stack *get_min(t_stack *stack)

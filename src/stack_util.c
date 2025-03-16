@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 08:25:32 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/16 07:58:05 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:17:31 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ void	add_node(t_stack **stack, t_stack *node)
 
 t_stack *get_last_node(t_stack *stack)
 {
-	if (!stack)
-		return (NULL);
-	while (stack->next)
+	while (stack && stack->next)
 		stack = stack->next;
 	return (stack);
 }

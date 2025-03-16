@@ -6,30 +6,30 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:23:24 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 18:39:22 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:21:49 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	rev_rotate_a_algorithm(t_data *data)
+static int rev_rotate_a_algorithm(t_data *data)
 {
-	t_stack **stack_a;
-	t_stack *first_node;
-	t_stack *last_node;
+    t_stack **stack_a;
+    t_stack *first_node;
+    t_stack *last_node;
 
-	stack_a = data->stack_a;
-	last_node = get_last_node(*stack_a);
-	if (!*stack_a || last_node == *stack_a)
-		return (1);
-	first_node = *stack_a;
-	if (last_node->prev)
-		last_node->prev->next = NULL;
-	last_node->prev = NULL;
-	last_node->next = first_node;
-	first_node->prev = last_node;
-	*stack_a = last_node;
-	return (0);
+    stack_a = data->stack_a;
+    last_node = get_last_node(*stack_a);
+    if (!*stack_a || last_node == *stack_a)
+        return (1);
+    first_node = *stack_a;
+    if (last_node->prev)
+        last_node->prev->next = NULL;
+    last_node->prev = NULL;
+    last_node->next = first_node;
+    first_node->prev = last_node;
+    *stack_a = last_node;
+    return (0);
 }
 
 static int	rev_rotate_b_algorithm(t_data *data)

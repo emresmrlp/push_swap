@@ -6,29 +6,31 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:44:58 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 17:52:16 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:21:55 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	swap_a_algorithm(t_data *data)
+static int swap_a_algorithm(t_data *data)
 {
-	t_stack **stack_a;
-	t_stack *first;
-	t_stack *second;
+    t_stack **stack_a;
+    t_stack *first;
+    t_stack *second;
 
-	stack_a = data->stack_a;
-	if (!*stack_a || !((*stack_a)->next))
-		return (1);
-	first = *stack_a;
-	second = (*stack_a)->next;
-	first->next = second->next;
-	first->prev = second;
-	second->next = first;
-	second->prev = NULL;
-	*stack_a = second;
-	return (0);
+    stack_a = data->stack_a;
+    if (!*stack_a || !((*stack_a)->next))
+        return (1);
+    first = *stack_a;
+    second = (*stack_a)->next;
+    first->next = second->next;
+    if (second->next)
+        second->next->prev = first;
+    first->prev = second;
+    second->next = first;
+    second->prev = NULL;
+    *stack_a = second;
+    return (0);
 }
 
 static int	swap_b_algorithm(t_data *data)

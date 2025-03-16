@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 08:11:42 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/16 09:40:58 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:24:13 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,7 @@ static void turksort_match_targets_b(t_data *data)
         {
             while (node->index != 0 && node->cost > 0)
             {
-                if (stack_b->next && stack_b->next == node)
-                    swap_b(data);
-                else if (node->above_median)
+                if (node->above_median)
                     rotate_b(data);
                 else
                     rev_rotate_b(data);
@@ -97,9 +95,7 @@ static void turksort_match_targets_b(t_data *data)
             }
             while (stack_a->index != stack_b->target->index && node->cost > 0)
             {
-                if (stack_a->next && stack_a->next->index == stack_b->target->index)
-                    swap_a(data);
-                else if (stack_b->target->above_median)
+                if (stack_b->target->above_median)
                     rotate_a(data);
                 else
                     rev_rotate_a(data);

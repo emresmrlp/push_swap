@@ -6,7 +6,7 @@
 /*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:42:02 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/14 15:50:17 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/03/20 08:14:20 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 
 typedef struct s_stack
 {
+	int ra;
+	int rb;
+	int rra;
+	int rrb;
 	int value;
 	int index;
 	int above_median;
@@ -33,8 +37,8 @@ typedef struct s_data
 {
 	t_stack	**stack_a;
 	t_stack	**stack_b;
-	int		size;
 	char	**buffer;
+	int		size;
 }	t_data;
 
 t_stack	*create_node(int value);
@@ -43,8 +47,10 @@ t_stack	*get_max(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
 void	set_targets_a(t_stack *stack_a, t_stack *stack_b);
 void	set_targets_b(t_stack *stack_a, t_stack *stack_b);
-void	set_cheapest_a(t_stack *stack_a, t_stack *stack_b);
-void	set_cheapest_b(t_stack *stack_a, t_stack *stack_b);
+void	calc_cost_a(t_stack *stack_a, t_stack *stack_b);
+void	calc_cost_b(t_stack *stack_a, t_stack *stack_b);
+void 	both_rotate_operations(t_data *data, t_stack *node);
+void	rotate_operations(t_data *data, t_stack *node);
 void    min_to_top(t_data *data);
 void	set_index(t_stack **stack);
 void	add_node(t_stack **stack, t_stack *node);

@@ -4,3 +4,5 @@
 ```
 ./push_swap 1 3 2 5 9 (Unsorted random integers..)
 ```
+
+![cover-push_swap](https://github.com/user-attachments/assets/dffffbbc-effb-4b47-a8f4-fb091c8776c1)

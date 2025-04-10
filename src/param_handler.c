@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:51:18 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/02 07:32:10 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:33:20 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,16 @@ static int	param_allocation(t_data *data, int ac, char **av)
 static int	param_check_max_min(char **av)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (av[i] != NULL)
 	{
+		j = 0;
+		while (av[i][j] != '\0')
+			j++;
+		if (j > 14)
+			return (1);
 		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
 			return (1);
 		i++;
@@ -90,7 +96,7 @@ int	param_count(char **av)
 	return (i);
 }
 
-int	param_controls(t_data *data, int ac, char **av)
+int	param_handler(t_data *data, int ac, char **av)
 {
 	if (param_allocation(data, ac, av))
 		return (1);

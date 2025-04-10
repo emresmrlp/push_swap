@@ -3,82 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:44:58 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/16 23:21:55 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:32:58 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int swap_a_algorithm(t_data *data)
+int	swap_a(t_data *data, int state)
 {
-    t_stack **stack_a;
-    t_stack *first;
-    t_stack *second;
+	t_stack	*temp;
 
-    stack_a = data->stack_a;
-    if (!*stack_a || !((*stack_a)->next))
-        return (1);
-    first = *stack_a;
-    second = (*stack_a)->next;
-    first->next = second->next;
-    if (second->next)
-        second->next->prev = first;
-    first->prev = second;
-    second->next = first;
-    second->prev = NULL;
-    *stack_a = second;
-    return (0);
-}
-
-static int	swap_b_algorithm(t_data *data)
-{
-	t_stack **stack_b;
-	t_stack *first;
-	t_stack *second;
-
-	stack_b = data->stack_b;
-	if (!*stack_b || !(*stack_b)->next)
+	if (!data->stack_a || !data->stack_a->next)
 		return (1);
-	first = *stack_b;
-	second = (*stack_b)->next;
-	first->next = second->next;
-	first->prev = second;
-	second->next = first;
-	second->prev = NULL;
-	*stack_b = second;
-	return (0);
-}
-
-int	swap_a(t_data *data)
-{
-	if (swap_a_algorithm(data))
-		return (1);
-	ft_printf("sa\n");
-	return (0);
-}
-
-int	swap_b(t_data *data)
-{
-	if (swap_b_algorithm(data))
-		return (1);
-	ft_printf("sb\n");
-	return (0);
-}
-
-int	swap_ab(t_data *data)
-{
-	t_stack **stack_a;
-	t_stack **stack_b;
-
-	stack_a = data->stack_a;
-	stack_b = data->stack_b;
-	if (!*stack_a || !*stack_b || !(*stack_a)->next || !(*stack_b)->next)
-		return (1);
-	swap_a(data);
-	swap_b(data);
-	ft_printf("ss\n");
+	temp = data->stack_a->next;
+	if (temp->next)
+	{
+		data->stack_a->next = temp->next;
+		temp->next->prev = data->stack_a;
+	}
+	else
+		data->stack_a->next = NULL;
+	data->stack_a->prev = temp;
+	temp->next = data->stack_a;
+	temp->prev = NULL;
+	data->stack_a = temp;
+	if (state)
+		ft_printf("sa\n");
 	return (0);
 }

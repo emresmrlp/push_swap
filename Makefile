@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+         #
+#    By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 12:12:01 by ysumeral          #+#    #+#              #
-#    Updated: 2025/03/20 08:13:13 by ysumeral         ###   ########.fr        #
+#    Updated: 2025/04/10 18:32:40 by ysumeral         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,23 +17,21 @@ LIB_DIR = ./external/libft
 INC_DIR = ./include
 PRINTF_LIB = ./external/ft_printf/libftprintf.a
 SRC =	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/program_state.c \
+		$(SRC_DIR)/program_init.c \
+		$(SRC_DIR)/param_handler.c \
+		$(SRC_DIR)/sort_handler.c \
+		$(SRC_DIR)/sort_util.c \
+		$(SRC_DIR)/turk_sort_calc_a.c \
+		$(SRC_DIR)/turk_sort_calc_b.c \
+		$(SRC_DIR)/turk_sort_handler.c \
+		$(SRC_DIR)/turk_sort_target.c \
+		$(SRC_DIR)/turk_sort_util.c \
+		$(SRC_DIR)/stack_handler.c \
 		$(SRC_DIR)/stack_push.c \
 		$(SRC_DIR)/stack_swap.c \
 		$(SRC_DIR)/stack_rotate.c \
-		$(SRC_DIR)/stack_util.c \
-		$(SRC_DIR)/sort_handler.c \
-		$(SRC_DIR)/sort_util.c \
-		$(SRC_DIR)/sort_turksort.c \
-		$(SRC_DIR)/sort_turksort_calc_a.c \
-		$(SRC_DIR)/sort_turksort_calc_b.c \
-		$(SRC_DIR)/sort_turksort_target.c \
-		$(SRC_DIR)/sort_turksort_util.c \
-		$(SRC_DIR)/sort_algorithms.c \
 		$(SRC_DIR)/stack_rev_rotate.c \
-		$(SRC_DIR)/program_init.c \
-		$(SRC_DIR)/program_state.c \
-		$(SRC_DIR)/param_handler.c \
-		$(SRC_DIR)/stack_handler.c \
 		$(SRC_DIR)/memory_free.c \
 		$(LIB_DIR)/ft_calloc.c \
 		$(LIB_DIR)/ft_atol.c \
@@ -51,8 +49,6 @@ OBJ = $(SRC:.c=.o)
 NAME = push_swap
 
 all: $(NAME)
-
-test: all clean
 
 $(NAME): $(OBJ)
 	make -C ./external/ft_printf

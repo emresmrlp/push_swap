@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 10:11:09 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 16:50:59 by ysumeral         ###   ########.fr       */
+/*   Created: 2025/03/23 15:02:01 by ysumeral          #+#    #+#             */
+/*   Updated: 2025/04/10 18:33:08 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int check_duplicate(t_stack **stack)
+int	check_duplicate(t_stack *stack)
 {
-	t_stack *head;
-	t_stack *temp;
+	t_stack	*head;
+	t_stack	*temp;
 
-	head = *stack;
+	head = stack;
 	while (head)
 	{
 		temp = head->next;
@@ -32,11 +32,11 @@ static int check_duplicate(t_stack **stack)
 	return (0);
 }
 
-int	is_sorted(t_stack **stack)
+int	is_sorted(t_stack *stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	temp = *stack;
+	temp = stack;
 	if (!temp)
 		return (1);
 	while (temp->next)
@@ -48,9 +48,17 @@ int	is_sorted(t_stack **stack)
 	return (1);
 }
 
-int	stack_controls(t_data *data)
+int	get_size(t_stack *stack)
 {
-	if (check_duplicate(data->stack_a))
-		return (1);
-	return (0);
+	int		i;
+	t_stack	*temp;
+
+	temp = stack;
+	i = 0;
+	while (temp)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
 }

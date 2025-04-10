@@ -3,82 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   stack_rev_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:23:24 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/16 23:21:49 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:33:03 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int rev_rotate_a_algorithm(t_data *data)
+int	rev_rotate_a(t_data *data, int state)
 {
-    t_stack **stack_a;
-    t_stack *first_node;
-    t_stack *last_node;
+	t_stack	*top;
 
-    stack_a = data->stack_a;
-    last_node = get_last_node(*stack_a);
-    if (!*stack_a || last_node == *stack_a)
-        return (1);
-    first_node = *stack_a;
-    if (last_node->prev)
-        last_node->prev->next = NULL;
-    last_node->prev = NULL;
-    last_node->next = first_node;
-    first_node->prev = last_node;
-    *stack_a = last_node;
-    return (0);
-}
-
-static int	rev_rotate_b_algorithm(t_data *data)
-{
-	t_stack **stack_b;
-	t_stack *first_node;
-	t_stack *last_node;
-
-	stack_b = data->stack_b;
-	last_node = get_last_node(*stack_b);
-	if (!*stack_b || last_node == *stack_b)
+	if (!data->stack_a || !data->stack_a->next)
 		return (1);
-	first_node = *stack_b;
-	*stack_b = last_node;
-	last_node->prev->next = NULL;
-	last_node->prev = NULL;
-	last_node->next = first_node;
-	first_node->prev = last_node;
+	top = data->stack_a;
+	while (top->next)
+		top = top->next;
+	top->prev->next = NULL;
+	top->prev = NULL;
+	top->next = data->stack_a;
+	data->stack_a->prev = top;
+	data->stack_a = top;
+	if (state)
+		ft_printf("rra\n");
 	return (0);
 }
 
-int	rev_rotate_a(t_data *data)
+int	rev_rotate_b(t_data *data, int state)
 {
-	if (rev_rotate_a_algorithm(data))
+	t_stack	*top;
+
+	if (!data->stack_b || !data->stack_b->next)
 		return (1);
-	ft_printf("rra\n");
+	top = data->stack_b;
+	while (top->next)
+		top = top->next;
+	top->prev->next = NULL;
+	top->prev = NULL;
+	top->next = data->stack_b;
+	data->stack_b->prev = top;
+	data->stack_b = top;
+	if (state)
+		ft_printf("rrb\n");
 	return (0);
 }
 
-int rev_rotate_b(t_data *data)
+int	rev_rotate_rrr(t_data *data)
 {
-	if (rev_rotate_b_algorithm(data))
+	if (!data->stack_a || !data->stack_b)
 		return (1);
-	ft_printf("rrb\n");
-	return (0);
-}
-
-int	rev_rotate_ab(t_data *data)
-{
-	t_stack **stack_a;
-	t_stack **stack_b;
-
-	stack_a = data->stack_a;
-	stack_b = data->stack_b;
-	if (!*stack_a || !*stack_b || get_last_node(*stack_a) == *stack_a
-		|| get_last_node(*stack_b) == *stack_b)
+	if (!data->stack_a->next || !data->stack_b->next)
 		return (1);
-	rev_rotate_a_algorithm(data);
-	rev_rotate_b_algorithm(data);
+	rev_rotate_a(data, 0);
+	rev_rotate_b(data, 0);
 	ft_printf("rrr\n");
 	return (0);
 }

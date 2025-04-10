@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   memory_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysumeral <ysumeral@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: ysumeral < ysumeral@student.42istanbul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 04:52:48 by ysumeral          #+#    #+#             */
-/*   Updated: 2025/03/07 15:55:54 by ysumeral         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:33:22 by ysumeral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_params(t_data *data)
+static void	free_params(t_data *data)
 {
 	int	i;
 
@@ -26,30 +26,31 @@ void	free_params(t_data *data)
 	data->buffer = NULL;
 }
 
-void	free_stack(t_data *data)
+static void	free_stacks(t_data *data)
 {
-	t_stack	*tmp;
+	t_stack	*current;
+	t_stack	*next;
 
 	if (data->stack_a)
 	{
-		while (*data->stack_a)
+		current = data->stack_a;
+		while (current)
 		{
-			tmp = *data->stack_a;
-			*data->stack_a = (*data->stack_a)->next;
-			free(tmp);
+			next = current->next;
+			free(current);
+			current = next;
 		}
-		free(data->stack_a);
 		data->stack_a = NULL;
 	}
 	if (data->stack_b)
 	{
-		while (*data->stack_b)
+		current = data->stack_b;
+		while (current)
 		{
-			tmp = *data->stack_b;
-			*data->stack_b = (*data->stack_b)->next;
-			free(tmp);
+			next = current->next;
+			free(current);
+			current = next;
 		}
-		free(data->stack_b);
 		data->stack_b = NULL;
 	}
 }
@@ -61,7 +62,7 @@ void	memory_free(t_data *data)
 		if (data->buffer)
 			free_params(data);
 		if (data->stack_a || data->stack_b)
-			free_stack(data);
+			free_stacks(data);
 		free(data);
 	}
 }
